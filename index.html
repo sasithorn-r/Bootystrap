@@ -12,6 +12,47 @@
       <p class="lead text-center">This is a simple example of a Bootstrap 5 page.</p>
 
       <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="h5">Register</h2>
+                    <form id="registerForm" action="form_register.html" method="GET" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label">Full name</label>
+                            <input type="text" name="fullname" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" required minlength="6">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var form = document.getElementById('registerForm');
+                if (form) {
+                    form.addEventListener('submit', function (e) {
+                        var p = document.getElementById('password').value;
+                        var c = document.getElementById('confirm_password').value;
+                        if (p !== c) {
+                            e.preventDefault();
+                            alert('รหัสผ่านไม่ตรงกัน');
+                        }
+                    });
+                }
+            });
+        </script>
         <div class="p-2 text-center col-md-3 col-lg-3 bg-primary text-white">
             COL-6
         </div>
